@@ -1,0 +1,63 @@
+@font-face {
+    font-family: HelveticaLight;
+    src: url(HelveticaLTStd-Light.otf) format("opentype");
+}
+
+@font-face {
+    font-family: HelveticaBold;
+    font-weight: bold;
+    src: url(HelveticaRoundedLTStd-Bd.otf) format("opentype");
+}
+
+@font-face {
+    font-family: HelveticaCond;
+    font-weight: bold;
+    src: url(HelveticaLTStd-Cond.otf) format("opentype");
+}
+
+.helveticaLight {
+    font-family: HelveticaLight;
+}
+
+.helveticaBold {
+    font-family: HelveticaBold;
+}
+
+.helveticaCond {
+    font-family: HelveticaCond;
+}
+
+.brandLogo {
+    height: 150px;
+    width: 150px;
+    float: left;
+}
+
+#brandText {
+    position: absolute;
+    left: 160px;
+    bottom: 0px;
+    height:25px;
+    font-size:25px;
+}
+
+.brandContainer {
+    min-width: 400px;
+    margin-bottom: 20px;
+}
+
+#navStyles {
+    padding-left: 50%;
+    transform: translateX(-50%);
+}
+
+.header-row {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.navbar {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}

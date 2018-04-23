@@ -1,0 +1,74 @@
+
+    {% extends 'albums/layout.html' %}
+    {% load static %}
+    {% block content %}
+    <style>
+      .carosel {
+        position: relative;
+        max-height: 500px;
+      }
+      .carosel-inner {
+        white-space: nowrap;
+        overflow: hidden;
+        font-size: 0;
+      }
+      .carosel-item {
+        display: inline-block;
+        top: 0px;
+        max-height: 500px;
+        margin-right: 20px;
+      }
+      .carosel-control {
+        position: absolute;
+        height: 105px;
+        width: 70px;
+        top: 50%;
+        padding: 0%;
+        box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.5);
+        transform: translateY(-50%);
+        border-radius: 0%;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 30px;
+        display: inline-block;
+        background-color: rgb(255, 255, 255);
+      }
+      .carosel-control-left {
+        left: 30px;
+      }
+      .carosel-control-right {
+        right: 30px;
+      }
+      .carosel-control:active,
+      .carosel-control:hover {
+        text-decoration: none;
+        color: rgba(255, 0, 0, 0.726);
+      }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <div class="carosel" id="carosel1">
+      <img src="{% static 'arrow.jpg'%}" class="carosel-control carosel-control-left" style="cursor: pointer"/>
+        <div class="carosel-inner">
+          {% for photo in photosCarrousel %}
+            <img class="carosel-item" src="{{photo.image.url}}" alt="My image" />
+          {% endfor %}
+        </div>
+      <img src="{% static 'arrow_inv.jpg'%}" class="carosel-control carosel-control-right" style="cursor: pointer"/>
+    </div>
+
+    <script>
+      $('.carosel-control-right').click(function() {
+        $(this).blur();
+        $(this).parent().find('.carosel-item').first().insertAfter($(this).parent().find('.carosel-item').last());
+      });
+      $('.carosel-control-left').click(function() {
+        $(this).blur();
+        $(this).parent().find('.carosel-item').last().insertBefore($(this).parent().find('.carosel-item').first());
+      });
+    </script>
+{% endblock %}
+
+
+
+

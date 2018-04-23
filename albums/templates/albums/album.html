@@ -1,0 +1,37 @@
+{% extends 'albums/layout.html' %}
+{% block content %}
+    <style>
+        .gal {
+            -webkit-column-count: 3; /* Chrome, Safari, Opera */
+            -moz-column-count: 3; /* Firefox */
+            column-count: 3;            
+        }	
+        .gal img{
+            width: 100%;
+            padding: 7px 0;
+        }
+        @media (max-width: 500px) {     
+            .gal { 
+                -webkit-column-count: 1; /* Chrome, Safari, Opera */
+                -moz-column-count: 1; /* Firefox */
+                column-count: 1; 
+            }
+        }
+    </style>
+
+    <div class="container">
+        <div class="col-md-12">
+            <div class="row">
+                <hr>
+                <div class="gal">
+                    {% for photo in photos %}      
+                        <img class="" src="{{photo.image.url}}" alt="{{photo.image.url}}"/>        
+                    {% endfor %}             
+                </div>  
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
+
+
