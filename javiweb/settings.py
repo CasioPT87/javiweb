@@ -126,9 +126,9 @@ ACHES = {
 STATIC_URL = '/static/'
 
 #This folder is empty so far
-STATICFILES_DIRS = [
-    'mystatic'
-]
+# STATICFILES_DIRS = [
+#     'mystatic'
+# ]
 
 #folder where the images are uploaded
 MEDIA_ROOT = 'images'
@@ -136,7 +136,7 @@ MEDIA_ROOT = 'images'
 #URL from the server to access your media files
 MEDIA_URL = 'media/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'mystatic')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 
