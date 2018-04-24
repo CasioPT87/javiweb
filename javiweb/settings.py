@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool) 
 
-ALLOWED_HOSTS = ['javiercarratala.herokuapp.com', 'localhost:8000']
+ALLOWED_HOSTS = ['javiercarratala.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -136,7 +136,7 @@ MEDIA_ROOT = 'images'
 #URL from the server to access your media files
 MEDIA_URL = 'media/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'mystatic')
 
 
 
