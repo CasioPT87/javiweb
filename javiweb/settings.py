@@ -135,7 +135,7 @@ MEDIA_ROOT = 'images'
 #URL from the server to access your media files
 MEDIA_URL = 'media/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'mystatic')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'mystatic')
 
 
 
