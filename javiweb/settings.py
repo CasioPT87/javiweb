@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -122,20 +123,36 @@ ACHES = {
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-STATIC_URL = '/static/'
+#STATIC_URL = '/static/'
 
-#This folder is empty so far
-STATICFILES_DIRS = [
-    'mystatic'
-]
+#is the list of folder where Django will search for additional static files, in addition to each static folder of each app installed
+# STATICFILES_DIRS = [
+#     'mystatic'
+# ]
 
-#folder where the images are uploaded
+#is the folder where every files uploaded with an FileField will go.
 MEDIA_ROOT = 'images'
 
 #URL from the server to access your media files
 MEDIA_URL = 'media/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'mystatic')
+# is the folder where every static files will be stored after a manage.py collectstatic
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = config('S3_BUCKET')
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_LOCATION = 'static/admin/img'
+
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'mystatic'),
+# ]
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 
