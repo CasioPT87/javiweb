@@ -80,7 +80,6 @@ default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 
 DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
@@ -126,9 +125,9 @@ ACHES = {
 STATIC_URL = '/static/'
 
 #This folder is empty so far
-# STATICFILES_DIRS = [
-#     'mystatic'
-# ]
+STATICFILES_DIRS = [
+    'mystatic'
+]
 
 #folder where the images are uploaded
 MEDIA_ROOT = 'images'
@@ -136,7 +135,7 @@ MEDIA_ROOT = 'images'
 #URL from the server to access your media files
 MEDIA_URL = 'media/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'mystatic')
 
 
 
