@@ -32,4 +32,15 @@ class PhotoCarrousel(models.Model):
     class Meta:
         ordering = ['name']
 
+class Headboard(models.Model):
+    title = models.CharField(max_length=30)
+    album = models.ForeignKey(Album, on_delete=False)
+    image = models.ImageField(null=True, blank=True, upload_to='headboards', height_field=None, width_field=None, max_length=100)
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        ordering = ['title']
+
     

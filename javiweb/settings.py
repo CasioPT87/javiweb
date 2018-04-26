@@ -134,7 +134,7 @@ ACHES = {
 MEDIA_ROOT = 'images'
 
 #URL from the server to access your media files
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 
 # is the folder where every static files will be stored after a manage.py collectstatic
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
