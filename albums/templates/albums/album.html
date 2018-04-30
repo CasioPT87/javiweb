@@ -1,5 +1,9 @@
 {% extends 'albums/layout.html' %}
 {% block content %}
+    <script     src="https://code.jquery.com/jquery-3.3.1.min.js"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                crossorigin="anonymous">
+    </script>
     <style>
         .gal {
             -webkit-column-count: 3; /* Chrome, Safari, Opera */
@@ -17,24 +21,83 @@
                 column-count: 1; 
             }
         }
+
+        #imagePopFondo {
+            display: none;
+            position: absolute;
+            top: 0px;
+            left: 0px;            
+            z-index: 90;
+            background-color: white;
+            opacity: 0.4;
+        }
+        #imagePop {
+            position: fixed;
+            width: 90vmin;
+            top: 50%;
+            left: 50%;
+            /* bring your own prefixes */
+            transform: translate(-50%, -50%);
+            z-index: 100;
+            cursor: pointer;
+        }
+        .imagesAlbum {
+            cursor: pointer;
+        }
+
     </style>
-    <div class="containerHeadboard">
+    <div class="containerHeadboard blurreable">
         <img src="{{headboard.image.url}}" alt="{{headboard.title}}" style="width:100%;">      
         <div class="centered">{{headboard.title}}</div>
     </div> 
 
-    <div class="container">       
+    <div class="container blurreable">       
         <div class="col-md-12">
             <div class="row">
                 <hr>
                 <div class="gal">
                     {% for photo in photos %}      
-                        <img class="" src="{{photo.image.url}}" alt="{{photo.image.url}}"/>        
+                        <img class="imagesAlbum" src="{{photo.image.url}}" alt="{{photo.image.url}}"/>        
                     {% endfor %}             
                 </div>  
             </div>
         </div>
     </div>
+    <div id="imagePopFondo"></div>
+    <img id="imagePop"/>
+    
+    <script>
+        $('.imagesAlbum').on('click', function(e) {
+            e.preventDefault();
+
+            var src = $(this).attr('src');
+            var scrolled = $(document).scrollTop();
+            var heightDocument = $(document).height();
+            var widthDocument = $(document).width();
+
+            $('#imagePopFondo').css({
+                display: 'block',
+                height: heightDocument+'px',
+                width: widthDocument+'px'
+            });
+            $('#imagePop').attr('src', src);
+            $('#imagePop').css({
+                display: 'block'
+            });
+            $('.blurreable').css({
+                filter: 'blur(10px)'
+            });
+        })
+
+        $('#imagePop').on('click', function(e) {  
+            e.preventDefault();          
+            $(this).css({display: 'none'});
+            $('#imagePopFondo').css('display', 'none');
+            $('.blurreable').css({
+                filter: 'blur(0px)'
+            });
+        })
+    </script>
     
 {% endblock %}
 
