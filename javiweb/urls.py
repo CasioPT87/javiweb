@@ -20,6 +20,6 @@ from . import views
 """from javiweb.views import hello, current_datetime"""
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin', admin.site.urls),
     path('', include('albums.urls')),
 ]

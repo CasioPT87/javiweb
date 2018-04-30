@@ -130,52 +130,52 @@
                 </nav>
             </div>
             <div class="col-2">
-                <img class="mr-3 rounded-circle" src="{% static 'instagram.png'%}" alt="Instagram" style="background-size: 100% 100%;display: inline-block; width: 40px; height: 40px; margin-top: 5px">
-                <img class="mr-3 rounded-circle" src="{% static 'facebook.jpg'%}" alt="Facebook" style="background-size: 100% 100%;display: inline-block; width: 40px; height: 40px; margin-top: 5px">                     
+                <a href="http://reddit.com/">
+                    <img class="mr-3 rounded-circle" src="{% static 'instagram.png'%}" alt="Instagram" style="background-size: 100% 100%;display: inline-block; width: 40px; height: 40px; margin-top: 5px">
+                </a>
+                <a href="http://as.com/">
+                    <img class="mr-3 rounded-circle" src="{% static 'facebook.jpg'%}" alt="Facebook" style="background-size: 100% 100%;display: inline-block; width: 40px; height: 40px; margin-top: 5px">                     
+                </a>                
             </div>
         </div>
     </div>
-
-    <div class="container-fluid">
 
         {% block content %}
         {% endblock %}
 
-    </div>
-
-        <div class='row' style="background-color: #54cce4; height: 200px; margin-left: -10px; margin-right: -10px; margin-top: 15px">
-            <div class='col-3' style="min-width: 200px;">
-                <div style="height:200px; top: 50px"> 
-                    <div style="display: block; position: absolute; bottom: 0px; left: 50px">
-                        <p class="text_footer helveticaCond" style="font-size: 14px">&#9400;2018 Javier Carratala</p>
-                    </div>                   
-                </div>
-            </div>
-            <div>
-                <nav class="navbar navbar-expand-lg navbar-light d-none d-lg-block" style="margin: auto; margin-left: 20px">                    
-                    <div class="navbar-collapse" id="navbarSupportedContent">
-                        <ul id="navMenu" class="navbar-nav">
-                            <li class="nav-item active" id="Home"></li>
-                                {% if pageName == 'Home' %}
-                                    <a class="nav-link helveticaLight" style="margin-left: 5px; color:white; border-top: solid 2px white; padding-top: 5px" href="{% url 'index' %}">Home<span class="sr-only">(current)</span></a>
-                                {% else %}
-                                    <a class="nav-link helveticaLight" style="margin-left: 5px; color:white" href="{% url 'index' %}">Home<span class="sr-only">(current)</span></a>
-                                {% endif %}
-                            </li>
-                            {% for album in albums %}
-                                <li class="nav-item active">
-                                    {% if pageName ==  album.title %}
-                                        <a class="nav-link helveticaLight" style="margin-left: 5px; color:white; border-top: solid 2px white; padding-top: 5px" href="{% url 'album' album.title %}">{{album.title}}<span class="sr-only">(current)</span></a>
-                                    {% else %}
-                                        <a class="nav-link helveticaLight" style="margin-left: 5px; color:white" href="{% url 'album' album.title %}">{{album.title}}<span class="sr-only">(current)</span></a>
-                                    {% endif %}
-                                </li>
-                            {% endfor %}                            
-                        </ul>
-                    </div>
-                </nav>
+    <div class='row' style="background-color: #54cce4; height: 200px; margin-left: -10px; margin-right: -10px; margin-top: 15px">
+        <div class='col-3' style="min-width: 200px;">
+            <div style="height:200px; top: 50px"> 
+                <div style="display: block; position: absolute; bottom: 0px; left: 50px">
+                    <p class="text_footer helveticaCond" style="font-size: 14px">&#9400;2018 Javier Carratala</p>
+                </div>                   
             </div>
         </div>
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-light d-none d-lg-block" style="margin: auto; margin-left: 20px">                    
+                <div class="navbar-collapse" id="navbarSupportedContent">
+                    <ul id="navMenu" class="navbar-nav">
+                        <li class="nav-item active" id="Home"></li>
+                            {% if pageName == 'Home' %}
+                                <a class="nav-link helveticaLight" style="margin-left: 5px; color:white; border-top: solid 2px white; padding-top: 5px" href="{% url 'index' %}">Home<span class="sr-only">(current)</span></a>
+                            {% else %}
+                                <a class="nav-link helveticaLight" style="margin-left: 5px; color:white" href="{% url 'index' %}">Home<span class="sr-only">(current)</span></a>
+                            {% endif %}
+                        </li>
+                        {% for album in albums %}
+                            <li class="nav-item active">
+                                {% if pageName ==  album.title %}
+                                    <a class="nav-link helveticaLight" style="margin-left: 5px; color:white; border-top: solid 2px white; padding-top: 5px" href="{% url 'album' album.title %}">{{album.title}}<span class="sr-only">(current)</span></a>
+                                {% else %}
+                                    <a class="nav-link helveticaLight" style="margin-left: 5px; color:white" href="{% url 'album' album.title %}">{{album.title}}<span class="sr-only">(current)</span></a>
+                                {% endif %}
+                            </li>
+                        {% endfor %}                            
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
 
     <script>
     </script>
