@@ -50,13 +50,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
     <div class="carosel" id="carosel1">
-      <img src="{% static 'arrow.jpg'%}" class="carosel-control carosel-control-left" style="cursor: pointer"/>
+      <img src="{% static 'arrow.png'%}" class="carosel-control carosel-control-left" style="cursor: pointer" alt="arrow left"/>
         <div class="carosel-inner">
           {% for photo in photosCarrousel %}
             <img class="carosel-item" src="{{photo.image.url}}" alt="My image" />
           {% endfor %}
         </div>
-      <img src="{% static 'arrow_inv.jpg'%}" class="carosel-control carosel-control-right" style="cursor: pointer"/>
+      <img src="{% static 'arrow_inv.png'%}" class="carosel-control carosel-control-right" style="cursor: pointer" alt="arrow right"/>
     </div>
 
     <script>
